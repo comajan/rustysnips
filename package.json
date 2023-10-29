@@ -2,8 +2,8 @@
     "name": "rustysnips",
     "displayName": "Rusty Snips",
     "description": "Various VS Code snippets for the Rust language.",
-    "version": "1.0.0",
-    "publisher": "comajan",
+    "version": "1.0.1",
+    "publisher": "FoobarInc",
     "icon": "images/rusty-snips.jpg",
     "engines": {
         "vscode": "^1.82.0"

@@ -1,133 +1,154 @@
 {
-	"block": {
-		"prefix": ["{", "block"],
-		"body": [
-			"{",
-			"\t${TM_SELECTED_TEXT/(.*;)|(.*)(?!;)/$1$2${2:+;}/}$0",
-			"}"
-		],
-		"description": "curly brace { .. } code block"
-	},
-	"error match": {
-        "prefix": "error-match",
-        "body": [
-            "match $1 {",
-            "\tOk($2) => $3,",
-            "\tErr($4) => $5",
-            "}"
-        ]
-    },
-	"for in enumerate()": {
-        "prefix": "for-in-enumerate",
-        "body": [
-            "for (i, ${1:&item}) in $2.${3|iter(),into_iter(),iter_mut()|}.enumerate() {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ]
-    },
-	"for in loop": {
-        "prefix": "for-in-loop",
-        "body": [
-            "for $1 in $2 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ]
-    },
-	"if": {
-        "prefix": "if",
-        "body": [
-            "if $1 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ],
-        "description": "if conditional block"
-    },
-	"if/else": {
-        "prefix": "if-else",
-        "body": [
-            "if $1 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "} else {",
-            "\t",
-            "}"
-        ],
-        "description": "if/else conditional blocks"
-    },
-	"if let": {
-        "prefix": "if-let",
-        "body": [
-            "if let ${1|Some(,Err(|}$2) = $3 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ],
-        "description": "if let conditional block"
-    },
-	"loop": {
-		"prefix": "loop",
-		"body": [
-			"loop {",
-			"\t${TM_SELECTED_TEXT}$0",
-			"}"
-		],
-		"description": "infinite loop"
-	},
-	"match": {
-        "prefix": "match",
-        "body": [
-            "match $1 {",
-            "\t$2 => ${3},$0",
-            "}"
-        ],
-        "description": "match expression"
-    },
-	"optional match": {
-        "prefix": ["match?" "optional-match"],
-        "body": [
-            "match $1 {",
-            "\tSome($2) => $3,",
-            "\tNone => $4",
-            "}"
-        ]
-    },
-	"optional while": {
-        "prefix": ["ow?", "while?", "optional-while"],
-        "body": [
-            "while let Some(${1:value}) = $2 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ],
-        "description": "while let Some loop"
-    },
-    "println! macro": {
-        "prefix": ["pln", "println", "print-line"],
-        "body": [
-            "println!(\"$0\");"
-        ],
-        "description": "while let Some loop"
-    },
-	"struct declaration": {
-        "prefix": ["stc", "struct", "define-struct", "declare-struct"],
-        "body": [
-            "struct ${1:name} {",
-            "\t$0",
-            "}"
-        ]
-    },
-	"trait declaration": {
-        "prefix": "trait",
-        "body": [
-            "trait ${1:name} {",
-            "\t$0",
-            "}"
-        ]
-    },
-	"while": {
-        "prefix": "while-loop",
-        "body": [
-            "while $1 {",
-            "\t${TM_SELECTED_TEXT}$0",
-            "}"
-        ],
-        "description": "while loop"
-    },
+  "assert_eq! macro": {
+    "prefix": ["as", "as=", "ase", "assert"],
+    "body": [
+      "assert_eq!($1, $2);"
+    ],
+    "description": "assert_eq!(foo, bar) macro"
+  },
+  "block": {
+    "prefix": ["{", "block"],
+    "body": [
+      "{",
+      "\t${TM_SELECTED_TEXT/(.*;)|(.*)(?!;)/$1$2${2:+;}/}$0",
+      "}"
+    ],
+    "description": "curly brace { .. } code block"
+  },
+  "dbg! macro": {
+    "prefix": ["db", "dbg", "dbg!", "debug"],
+    "body": [
+      "dbg!($0);"
+    ],
+    "description": "dbg!() macro"
+  },
+  "error match": {
+    "prefix": "error-match",
+    "body": [
+      "match $1 {",
+      "\tOk($2) => $3,",
+      "\tErr($4) => $5",
+      "}"
+    ]
+  },
+  "for in enumerate()": {
+    "prefix": "for-in-enumerate",
+    "body": [
+      "for (i, ${1:&item}) in $2.${3|iter(),into_iter(),iter_mut()|}.enumerate() {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ]
+  },
+  "for in loop": {
+    "prefix": "for-in-loop",
+    "body": [
+      "for $1 in $2 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if $1 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "if conditional block"
+  },
+  "if/else": {
+    "prefix": "if-else",
+    "body": [
+      "if $1 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "} else {",
+      "\t",
+      "}"
+    ],
+    "description": "if/else conditional blocks"
+  },
+  "if let": {
+    "prefix": "if-let",
+    "body": [
+      "if let ${1|Some(,Err(|}$2) = $3 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "if let conditional block"
+  },
+  "loop": {
+    "prefix": "loop",
+    "body": [
+      "loop {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "infinite loop"
+  },
+  "match": {
+    "prefix": "match",
+    "body": [
+      "match $1 {",
+      "\t$2 => ${3},$0",
+      "}"
+    ],
+    "description": "match expression"
+  },
+  "optional match": {
+    "prefix": ["match?", "optional-match"],
+    "body": [
+      "match $1 {",
+      "\tSome($2) => $3,",
+      "\tNone => $4",
+      "}"
+    ]
+  },
+  "optional while": {
+    "prefix": ["ow?", "while?", "optional-while"],
+    "body": [
+      "while let Some(${1:value}) = $2 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "while let Some loop"
+  },
+  "panic! macro": {
+    "prefix": ["pn", "pn!", "panic"],
+    "body": [
+      "panic!(\"$0\");"
+    ],
+    "description": "panic!(\"the sky is falling!\") macro"
+  },
+  "println! macro": {
+    "prefix": ["pln", "println", "print-line"],
+    "body": [
+      "println!(\"$0\");"
+    ],
+    "description": "while let Some loop"
+  },
+  "struct declaration": {
+    "prefix": ["stc", "struct", "define-struct", "declare-struct"],
+    "body": [
+      "struct ${1:name} {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "trait declaration": {
+    "prefix": "trait",
+    "body": [
+      "trait ${1:name} {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "while": {
+    "prefix": "while-loop",
+    "body": [
+      "while $1 {",
+      "\t${TM_SELECTED_TEXT}$0",
+      "}"
+    ],
+    "description": "while loop"
+  }
 }
